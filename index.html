@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>HOI4D: A 4D Egocentric Dataset for Category-Level Human-Object Interaction</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+h2 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+}
+h3 {
+  margin-bottom: 1rem;
+}
+h4 {
+  margin-bottom: 1rem;
+}
+video {
+  width: 100%;
+  height: 100%;
+}
+code {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 20px;
+  white-space: pre-wrap;
+}
+.container {
+  padding: 40px 15px;
+}
+.center {
+  text-align: center;
+}
+.underline {
+  text-decoration: underline;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.authors {
+  line-height: 2;
+  font-size: 18px;
+}
+.section {
+  padding: 10px 0 30px;
+}
+.content {
+  padding: 10px 0;
+}
+.video {
+  padding: 20px 0 20px;
+}
+.image{
+  padding: 0 30px;
+}
+.embedded-video {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  border-radius: 10px !important;
+}
+.embedded-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="content">
+        <h2 class="center content">HOI4D: A 4D Egocentric Dataset for Category-Level Human-Object Interaction</h2>
+        <div class="center content authors">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="nowrap">Yunze Liu*<sup>1</sup></span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="nowrap">Yun Liu*<sup>1</sup></span>
+
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <span class="nowrap">Che Jiang<sup>1</sup></span>
+  
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <span class="nowrap">Kangbo Lyu<sup>1</sup></span>
+ 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       
+            <span class="nowrap">Weikang Wan<sup>2</sup></span>
+
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         
+            <span class="nowrap">Hao Shen<sup>2</sup></span>
+    
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         
+            <span class="nowrap">Boqiang Liang<sup>2</sup></span>
+
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         
+            <span class="nowrap">Zhoujie Fu<sup>1</sup></span>
+
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+            <span class="nowrap">He Wang<sup>2</sup></span>
+ 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         
+            <span class="nowrap">Li Yi†<sup>1</sup></span>
+
+
+        </div>
+        <div class="center content authors">
+          <span><sup>1</sup>Tsinghua University, <sup>2</sup>Peking University</span>
+        </div>
+        <div class="center authors">
+          <span>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022</span>
+        </div>
+      </div>
+
+      <div class="video">
+        <video autoplay="autoplay" muted="muted" loop="loop">
+          <source src="assets/pose.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="section">
+        <h3>Abstract</h3>
+        <p>We present HOI4D, a large-scale 4D egocentric dataset with rich annotations, to catalyze the research of category-level human-object interaction. HOI4D consists of 2.4M RGB-D egocentric video frames over 4000 sequences collected by 9 participants interacting with 800 different object instances from 16 categories over 610 different indoor rooms. Frame-wise annotations for panoptic segmentation, motion segmentation, 3D hand pose, category-level object pose and hand action have also been provided, together with reconstructed object meshes and scene point clouds. With HOI4D, we establish three benchmarking tasks to promote category-level HOI from 4D visual signals including semantic segmentation of 4D dynamic point cloud sequences, category-level object pose tracking, and egocentric action segmentation with diverse interaction targets. In-depth analysis shows HOI4D poses great challenges to existing methods and produces great research opportunities.</p>
+      </div>
+
+      <div class="section">
+        <h3>Paper</h3>
+        <div class="row content">
+          <div class="center image">
+            <a href="./assets/HOI4D_cvpr2022.pdf" target="_blank">
+              <br>
+              <span class="icon"> <i class="fas fa-file-pdf"></i> </span>
+              <span>PDF</span>
+            </a>
+          </div>
+          <div class="center image">
+            <a href="./assets/HOI4D_cvpr2022.pdf" target="_blank">
+              <br>
+              <span class="icon"> <i class="fas fa-file-pdf"></i> </span>
+              <span>Supplementary</span>
+            </a>
+          </div>
+          <div class="center image">
+            <a href="https://arxiv.org/abs/2104.04631" target="_blank">
+              <br>
+              <span class="icon"> <i class="fas fa-file-pdf"></i> </span>
+              <span>arXiv</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <div class="content">
+          <h4>Citing HOI4D</h4>
+          <p>Please cite HOI4D if it helps your research:</p>
+          <pre><code>@article{liu2022hoi4d,
+  title={HOI4D: A 4D Egocentric Dataset for Category-Level Human-Object Interaction},
+  author={Liu, Yunze and Liu, Yun and Jiang, Che and Fu, Zhoujie and Lyu, Kangbo and Wan, Weikang and Shen, Hao and Liang, Boqiang and Wang, He and Yi, Li},
+  journal={arXiv preprint arXiv:2203.01577},
+  year={2022}
+}
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Data</h3>
+        <p>DexYCB is licensed under <span class="underline"><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>.</p>
+
+        <p>386 files.<a href="" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>386data</a> (119G). Download this file to a new folder and extract it.</p>
+        <p>386 2Dseg files.<a href="" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>2Dseg</a> (119G). Download this file to a new folder and extract it.</p>
+
+        <p>Once you successfully download and extract the dataset, you should have a folder with the following structure:</p>
+        <pre><code>├── align_image/
+├── refine_depth/
+├── 3Dseg/
+└── action/
+├── 2Dseg.npy/
+</code></pre>
+      </div>
+
+
+      <div class="section">
+        <h3>Contact</h3>
+        <p>Send any comments or questions to Yunze Liu or Yunze Liu: liuyzchina@gmail.com, liuyun18@mails.tsinghua.edu.cn</p>
+      </div>
+
+      <hr>
+      <p>Last updated on 2022/03/28</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
