@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +19,7 @@ h3 {
   margin-bottom: 1rem;
 }
 h4 {
+  font-size: 20px;
   margin-bottom: 1rem;
 }
 video {
@@ -72,6 +74,11 @@ code {
   left: 0;
   width: 100%;
   height: 100%;
+}
+.aligncenter {
+    clear: both;
+    display: block;
+    margin: auto;
 }
 </style>
 </head>
@@ -130,9 +137,12 @@ code {
       
       </div>
 
+    
+      <!--       <iframe width="99%" height="618" src="https://www.youtube.com/embed/S8Amc6D8SKY?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
       <div class="video">
         <video autoplay="autoplay" muted="muted" loop="loop">
-          <source src="pose.mp4" type="video/mp4">
+          <source src="video.mp4" type="video/mp4">
         </video>
       </div>
 
@@ -140,6 +150,31 @@ code {
         <h3>Abstract</h3>
         <p>We present HOI4D, a large-scale 4D egocentric dataset with rich annotations, to catalyze the research of category-level human-object interaction. HOI4D consists of 2.4M RGB-D egocentric video frames over 4000 sequences collected by 9 participants interacting with 800 different object instances from 16 categories over 610 different indoor rooms. Frame-wise annotations for panoptic segmentation, motion segmentation, 3D hand pose, category-level object pose and hand action have also been provided, together with reconstructed object meshes and scene point clouds. With HOI4D, we establish three benchmarking tasks to promote category-level HOI from 4D visual signals including semantic segmentation of 4D dynamic point cloud sequences, category-level object pose tracking, and egocentric action segmentation with diverse interaction targets. In-depth analysis shows HOI4D poses great challenges to existing methods and produces great research opportunities.</p>
       </div>
+
+      <div class="section">
+        <h3>Overview of HOI4D</h3>
+        <p>We construct a large-scale 4D egocentric dataset with rich annotation for category-level human-object interaction. Frame-wise annotations for action segmentation(a), motion segmentation(b), panoptic segmentation(d), 3D hand pose and category-level object pose(c) are provided, together with reconstructed object meshes(e) and scene point cloud. </p>
+
+
+        <img src="teaser.png" height="70%" width="70%" class="aligncenter">
+          
+      </div>
+
+      <div class="section">
+        <h3>Object categories</h3>
+         <img src="class.png" height="70%" width="70%" class="aligncenter">
+      </div>
+      <div class="section">
+        <h3>Tasks and Benchmarks</h3>
+         <h4> Category-Level Object and Part Pose Tracking</h4>
+         <img src="pose.png" height="70%" width="70%" class="aligncenter">
+         <h4> 4D Point Cloud Videos Semantic Segmentation</h4>
+         <img src="4Dseg.png" height="70%" width="70%" class="aligncenter">
+         <h4> Fine-grained Video Action Segmentation</h4>
+         <img src="actionseg.png" height="70%" width="70%" class="aligncenter">
+      </div>
+
+
 
       <div class="section">
         <h3>Paper</h3>
