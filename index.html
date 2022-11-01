@@ -8,6 +8,31 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
+/* Table Head */
+#table-7 thead th {
+background-color: rgb(81, 130, 187);
+color: #fff;
+border-bottom-width: 0;
+}
+ 
+/* Column Style */
+#table-7 td {
+color: #000;
+}
+/* Heading and Column Style */
+#table-7 tr, #table-7 th {
+border-width: 1px;
+border-style: solid;
+border-color: rgb(81, 130, 187);
+}
+ 
+/* Padding and font style */
+#table-7 td, #table-7 th {
+padding: 5px 10px;
+font-size: 12px;
+font-family: Verdana;
+font-weight: bold;
+}
 h2 {
   font-family: 'Rubik', sans-serif;
   font-size: 40px;
@@ -150,6 +175,24 @@ code {
         <p>We present HOI4D, a large-scale 4D egocentric dataset with rich annotations, to catalyze the research of category-level human-object interaction. HOI4D consists of 2.4M RGB-D egocentric video frames over 4000 sequences collected by 9 participants interacting with 800 different object instances from 16 categories over 610 different indoor rooms. Frame-wise annotations for panoptic segmentation, motion segmentation, 3D hand pose, category-level object pose and hand action have also been provided, together with reconstructed object meshes and scene point clouds. With HOI4D, we establish three benchmarking tasks to promote category-level HOI from 4D visual signals including semantic segmentation of 4D dynamic point cloud sequences, category-level object pose tracking, and egocentric action segmentation with diverse interaction targets. In-depth analysis shows HOI4D poses great challenges to existing methods and produces great research opportunities.</p>
       </div>
 
+      <div class="section">
+        <h3>Benchmark</h3>
+            <h4>4D Semantic Segmentation</h4>
+        <table id="table-7"> <!-- Replace "table-1" with any of the design numbers -->
+        <thead>
+          <th>Method</th>
+          <th>mIoU</th>
+          <th>yEAR</th>
+          </thead>
+          <tbody>
+          <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+        </tbody>
+        </table>
+     
       <div class="section">
         <h3>Overview of HOI4D</h3>
         <p>We construct a large-scale 4D egocentric dataset with rich annotation for category-level human-object interaction. Frame-wise annotations for action segmentation(a), motion segmentation(b), panoptic segmentation(d), 3D hand pose and category-level object pose(c) are provided, together with reconstructed object meshes(e) and scene point cloud. </p>
