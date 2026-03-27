@@ -1,321 +1,291 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <title>HOI4D: A 4D Egocentric Dataset for Category-Level Human-Object Interaction</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 <style>
-/* Table Head */
-#table-7 thead th {
-background-color: rgb(81, 130, 187);
-color: #fff;
-border-bottom-width: 0;
-}
- 
-/* Column Style */
-#table-7 td {
-color: #000;
-}
-/* Heading and Column Style */
-#table-7 tr, #table-7 th {
-border-width: 1px;
-border-style: solid;
-border-color: rgb(81, 130, 187);
-}
- 
-/* Padding and font style */
-#table-7 td, #table-7 th {
-padding: 5px 10px;
-font-size: 12px;
-font-family: Verdana;
-font-weight: bold;
-}
-h2 {
-  font-family: 'Rubik', sans-serif;
-  font-size: 40px;
-  font-weight: 300;
-  letter-spacing: -1px;
-  margin-bottom: 1rem;
-}
-h3 {
-  margin-bottom: 1rem;
-}
-h4 {
-  font-size: 20px;
-  margin-bottom: 1rem;
-}
-video {
-  width: 100%;
-  height: 100%;
-}
-code {
-  background-color: #f5f5f5;
-  display: block;
-  padding: 20px;
-  white-space: pre-wrap;
-}
-.container {
-  padding: 40px 15px;
-}
-.center {
-  text-align: center;
-}
-.underline {
-  text-decoration: underline;
-}
-.nowrap {
-  white-space: nowrap;
-}
-.authors {
-  line-height: 2;
-  font-size: 18px;
-}
-.section {
-  padding: 10px 0 30px;
-}
-.content {
-  padding: 10px 0;
-}
-.video {
-  padding: 20px 0 20px;
-}
-.image{
-  padding: 0 30px;
-}
-.embedded-video {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  overflow: hidden;
-  border-radius: 10px !important;
-}
-.embedded-video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.aligncenter {
-    clear: both;
-    display: block;
-    margin: auto;
-}
+    body {
+        font-family: 'Inter', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        background-color: #fafafa;
+    }
+    
+    .container {
+        background-color: #ffffff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        padding: 50px 40px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        max-width: 1000px;
+    }
+
+    h2.title {
+        font-weight: 600;
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: #222;
+    }
+
+    h3.section-title {
+        font-weight: 500;
+        font-size: 1.5rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #eee;
+        color: #222;
+    }
+
+    /* Authors Section */
+    .authors-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 25px;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .authors-list a {
+        color: #0056b3;
+        text-decoration: none;
+    }
+    
+    .authors-list a:hover {
+        text-decoration: underline;
+    }
+
+    .affiliations {
+        font-size: 1rem;
+        color: #666;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .conference {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #444;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    /* Abstract */
+    .abstract-text {
+        text-align: justify;
+        max-width: 850px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+    }
+
+    /* Buttons */
+    .btn-academic {
+        background-color: #343a40;
+        color: #fff;
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: all 0.2s;
+        margin: 5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+    }
+
+    .btn-academic:hover {
+        background-color: #0056b3;
+        color: #fff;
+        text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Data Links Grid */
+    .data-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    
+    .btn-data {
+        background-color: #f8f9fa;
+        color: #333;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+    }
+
+    .btn-data:hover {
+        background-color: #e9ecef;
+        border-color: #ccc;
+        color: #000;
+        text-decoration: none;
+    }
+
+    /* Code Block */
+    pre {
+        background-color: #f1f3f5;
+        border-radius: 8px;
+        padding: 20px;
+        border: 1px solid #dee2e6;
+        overflow-x: auto;
+    }
+    
+    code {
+        font-family: 'Courier New', Courier, monospace;
+        color: #333;
+        font-size: 0.9rem;
+    }
+
+    /* Media */
+    .responsive-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 20px 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .news-banner {
+        background-color: #e3f2fd;
+        border-left: 4px solid #0d47a1;
+        padding: 15px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
 </style>
 </head>
 <body>
+
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <div class="content">
-        <h2 class="center content">HOI4D: A 4D Egocentric Dataset for Category-Level Human-Object Interaction</h2>
-        <!-- <h3 class="center content">Please check out the HOI4D Challenge on the latest project website <font color="red">www.hoi4d.top</font> !</h3> -->
-        <div class="center content authors">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="nowrap">Yunze Liu<sup>1,3</sup></span>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="nowrap">Yun Liu<sup>1</sup></span>
-
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <span class="nowrap">Che Jiang<sup>1</sup></span>
-  
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <span class="nowrap">Kangbo Lyu<sup>1</sup></span>
- 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       
-            <span class="nowrap">Weikang Wan<sup>2</sup></span>
-
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         
-            <span class="nowrap">Hao Shen<sup>2</sup></span>
-    
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         
-            <span class="nowrap">Boqiang Liang<sup>2</sup></span>
-
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         
-            <span class="nowrap">Zhoujie Fu<sup>1</sup></span>
-
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <header>
+        <h2 class="title">HOI4D: A 4D Egocentric Dataset for Category-Level Human-Object Interaction</h2>
         
-            <span class="nowrap">He Wang<sup>2</sup></span>
- 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         
-            <span class="nowrap">Li Yi†<sup>1,3</sup></span>
-
-
+        <div class="authors-list">
+            <span>Yunze Liu<sup>1,3</sup></span>
+            <span>Yun Liu<sup>1</sup></span>
+            <span>Che Jiang<sup>1</sup></span>
+            <span>Kangbo Lyu<sup>1</sup></span>
+            <span>Weikang Wan<sup>2</sup></span>
+            <span>Hao Shen<sup>2</sup></span>
+            <span>Boqiang Liang<sup>2</sup></span>
+            <span>Zhoujie Fu<sup>1</sup></span>
+            <span>He Wang<sup>2</sup></span>
+            <span>Li Yi†<sup>1,3</sup></span>
         </div>
-        <div class="center content authors">
-          <span><sup>1</sup>Tsinghua University, <sup>2</sup>Peking University, <sup>3</sup>Shanghai Qi Zhi Institute</span>
+
+        <div class="affiliations">
+            <span><sup>1</sup>Tsinghua University</span> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+            <span><sup>2</sup>Peking University</span> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+            <span><sup>3</sup>Shanghai Qi Zhi Institute</span>
         </div>
-        <div class="center authors">
-          <span>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022</span>
+
+        <div class="conference">
+            IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022
         </div>
-      
-      </div>
-<iframe width="1120" height="630" src="https://www.youtube.com/embed/yzNqm0JISU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
- <!--       <iframe width="99%" height="618" src="https://www.youtube.com/embed/S8Amc6D8SKY?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-<!--       <div class="video"> -->
-<!--         <video autoplay="autoplay" muted="muted" loop="loop"> -->
-<!--           <source src="video.mp4" type="video/mp4"> -->
-<!--         </video> -->
-      </div>
 
-      <div class="section">
-        <h3>Abstract</h3>
-        <p>We present HOI4D, a large-scale 4D egocentric dataset with rich annotations, to catalyze the research of category-level human-object interaction. HOI4D consists of 2.4M RGB-D egocentric video frames over 4000 sequences collected by 9 participants interacting with 800 different object instances from 16 categories over 610 different indoor rooms. Frame-wise annotations for panoptic segmentation, motion segmentation, 3D hand pose, category-level object pose and hand action have also been provided, together with reconstructed object meshes and scene point clouds. With HOI4D, we establish three benchmarking tasks to promote category-level HOI from 4D visual signals including semantic segmentation of 4D dynamic point cloud sequences, category-level object pose tracking, and egocentric action segmentation with diverse interaction targets. In-depth analysis shows HOI4D poses great challenges to existing methods and produces great research opportunities.</p>
-      </div>
-
-      <!-- <div class="section">
-        <h3>Benchmark</h3>
-            <h4>4D Semantic Segmentation</h4>
-               <table id="table-7"> 
-               <thead>
-                 <th>Method</th>
-                 <th>mIoU</th>
-                 <th>Year</th>
-                 </thead>
-                 <tbody>
-                 <tr>
-                 <td>P4Transformer</td>
-                 <td>40.1</td>
-                 <td>2022</td>
-                 </tr>
-                 <td>PPTr </td>
-                 <td>41.0</td>
-                 <td>2022</td>
-                 </tr>
-               </tbody>
-               </table>
-     
-           <h4>4D Action Segmentation</h4>
-               <table id="table-7"> 
-               <thead>
-                 <th>Method</th>
-                 <th>Accuracy</th>
-                 <th>Year</th>
-                 </thead>
-                 <tbody>
-                 <tr>
-                 <td>PPTr (without position embedding)</td>
-                 <td>71.75</td>
-                 <td>2022</td>
-                 </tr>
-                 <tr>
-                 <td>PPTr (with position embedding)</td>
-                 <td>77.40</td>
-                 <td>2022</td>
-                 </tr>
-               </tbody>
-               </table>
-           <p>You can benchmark your method by sending test results to the email: liuyzchina@gmail.com </p>
-           <p>And the official leaderboard is coming soon. </p> -->
-      <div class="section">
-        <h3>Overview of HOI4D</h3>
-        <p>We construct a large-scale 4D egocentric dataset with rich annotation for category-level human-object interaction. Frame-wise annotations for action segmentation(a), motion segmentation(b), panoptic segmentation(d), 3D hand pose and category-level object pose(c) are provided, together with reconstructed object meshes(e) and scene point cloud. </p>
-
-
-        <img src="teaser.png" width="700" height="432" class="aligncenter">
-<!--         <img src="class.png" width="700" height="432" class="aligncenter"> -->
-          
-      </div>
-
-<!--       <div class="section">
-        <h3>Object categories</h3>
-         
-      </div> -->
-    
-      <!-- <div class="section">
-        <h3>Tasks and Benchmarks</h3>
-         <h4> Category-Level Object and Part Pose Tracking</h4>
-         <img src="pose.png" width="800" height="432" class="aligncenter">
-         <h4> 4D Point Cloud Videos Semantic Segmentation</h4>
-         <img src="4Dseg.png" width="800" height="432" class="aligncenter">
-         <h4> Fine-grained Video Action Segmentation</h4>
-         <img src="actionseg.png" width="800" height="432" class="aligncenter">
-      </div> -->
-
-
-
-      <div class="section">
-        <h3>Paper</h3>
-        <div class="row content">
-          <div class="center image">
-            <a href="HOI4D_cvpr2022.pdf" target="_blank">
-              <br>
-              <span class="icon"> <i class="fas fa-file-pdf"></i> </span>
-              <span>PDF</span>
+        <div class="d-flex justify-content-center flex-wrap mb-5">
+            <a href="HOI4D_cvpr2022.pdf" target="_blank" class="btn-academic">
+                <i class="fas fa-file-pdf"></i> Paper
             </a>
-          </div>
-          <div class="center image">
-            <a href="supp_cvpr2022.pdf" target="_blank">
-              <br>
-              <span class="icon"> <i class="fas fa-file-pdf"></i> </span>
-              <span>Supplementary</span>
+            <a href="supp_cvpr2022.pdf" target="_blank" class="btn-academic">
+                <i class="fas fa-file-alt"></i> Supplementary
             </a>
-          </div>
-          <div class="center image">
-            <a href="https://arxiv.org/abs/2203.01577" target="_blank">
-              <br>
-              <span class="icon"> <i class="fas fa-file-pdf"></i> </span>
-              <span>arXiv</span>
+            <a href="https://arxiv.org/abs/2203.01577" target="_blank" class="btn-academic">
+                <i class="fas fa-external-link-alt"></i> arXiv
             </a>
-          </div>
+            <a href="https://github.com/hoi4d/HOI4D_ActionSeg" target="_blank" class="btn-academic">
+                <i class="fab fa-github"></i> Code
+            </a>
         </div>
-        <br>
-        <div class="content">
-          <h4>Citing HOI4D</h4>
-          <p>Please cite HOI4D if it helps your research:</p>
-          <pre><code>
-          @InProceedings{Liu_2022_CVPR,
+    </header>
+
+    <div class="embed-responsive embed-responsive-16by9 mb-5 rounded" style="box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yzNqm0JISU0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <section>
+        <h3 class="section-title">Abstract</h3>
+        <p class="abstract-text">
+            We present HOI4D, a large-scale 4D egocentric dataset with rich annotations, to catalyze the research of category-level human-object interaction. HOI4D consists of 2.4M RGB-D egocentric video frames over 4000 sequences collected by 9 participants interacting with 800 different object instances from 16 categories over 610 different indoor rooms. Frame-wise annotations for panoptic segmentation, motion segmentation, 3D hand pose, category-level object pose and hand action have also been provided, together with reconstructed object meshes and scene point clouds. With HOI4D, we establish three benchmarking tasks to promote category-level HOI from 4D visual signals including semantic segmentation of 4D dynamic point cloud sequences, category-level object pose tracking, and egocentric action segmentation with diverse interaction targets. In-depth analysis shows HOI4D poses great challenges to existing methods and produces great research opportunities.
+        </p>
+    </section>
+
+    <section>
+        <h3 class="section-title">Overview of HOI4D</h3>
+        <p class="abstract-text text-center mb-4">
+            We construct a large-scale 4D egocentric dataset with rich annotation for category-level human-object interaction. Frame-wise annotations for action segmentation(a), motion segmentation(b), panoptic segmentation(d), 3D hand pose and category-level object pose(c) are provided, together with reconstructed object meshes(e) and scene point cloud.
+        </p>
+        <img src="teaser.png" alt="HOI4D Teaser" class="responsive-img">
+    </section>
+
+    <section>
+        <h3 class="section-title">Data & Resources</h3>
+        <div class="news-banner">
+            <i class="fas fa-bullhorn mr-2"></i> <strong>News:</strong> We have released the test set with labels for HOI4D action segmentation and semantic segmentation tasks.
+        </div>
+        
+        <p class="mb-2"><strong>Downloads:</strong></p>
+        <div class="data-links mb-4">
+            <a href="https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIvAQAAAAAB4AcDOxj_uuh7alRaR9b7MQ?e=GyBNaD" target="_blank" class="btn-data"><i class="fas fa-download mr-1"></i> RGB Video</a>
+            <a href="https://1drv.ms/f/c/12e5c3dbeffd0594/EpQF_e_bw-UggBIpAQAAAAABswaE_tZsrSwsEoBbFh7F2w?e=K797bs" target="_blank" class="btn-data"><i class="fas fa-download mr-1"></i> Depth Video</a>
+            <a href="https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIsAQAAAAAB5gBbXuK7eDzXQmzDS5W09g?e=DdkFTE" target="_blank" class="btn-data"><i class="fas fa-download mr-1"></i> CAD Models</a>
+            <a href="https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIuAQAAAAABELgpzxDxCz58Qov76-wpvw?e=qhyY0h" target="_blank" class="btn-data"><i class="fas fa-download mr-1"></i> Annotations</a>
+            <a href="https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIqAQAAAAABZBWQ3p5gxd-tu_3rOeSo_A?e=GjWeg8" target="_blank" class="btn-data"><i class="fas fa-download mr-1"></i> Camera Parameters</a>
+            <a href="https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIrAQAAAAABHyHqDhs5CpJAkWTAQoGWxQ?e=ALFMCD" target="_blank" class="btn-data"><i class="fas fa-download mr-1"></i> Hand Pose</a>
+            <a href="https://pan.baidu.com/s/1ZeX8SzU-gnJ-wpO9ZukulQ?pwd=7gfs" target="_blank" class="btn-data"><i class="fas fa-cloud-download-alt mr-1"></i> Baidu Cloud (pwd: 7gfs)</a>
+        </div>
+
+        <p class="mb-2"><strong>Code & Tasks:</strong></p>
+        <div class="data-links">
+            <a href="https://github.com/leolyliu/HOI4D-Instructions" target="_blank" class="btn-data"><i class="fab fa-github mr-1"></i> Dataset Instructions</a>
+            <a href="https://github.com/hoi4d/HOI4D_ActionSeg" target="_blank" class="btn-data"><i class="fab fa-github mr-1"></i> Action Segmentation</a>
+            <a href="https://1drv.ms/f/c/12e5c3dbeffd0594/EpQF_e_bw-UggBIcAQAAAAABw2LzsilH0w3nTtEH3emGlA?e=dKDhCl" target="_blank" class="btn-data"><i class="fas fa-database mr-1"></i> Action Seg Test Set</a>
+            <a href="https://github.com/hoi4d/HOI4D_semseg" target="_blank" class="btn-data"><i class="fab fa-github mr-1"></i> Semantic Segmentation</a>
+            <a href="https://1drv.ms/f/c/12e5c3dbeffd0594/EpQF_e_bw-UggBIjAQAAAAAB562IRa4P_xu7YZgSSU_vrA?e=tnIX8V" target="_blank" class="btn-data"><i class="fas fa-database mr-1"></i> Sem Seg Test Set</a>
+        </div>
+    </section>
+
+    <section>
+        <h3 class="section-title">Citation</h3>
+        <p>If you find our work useful in your research, please consider citing:</p>
+<pre><code>@InProceedings{Liu_2022_CVPR,
     author    = {Liu, Yunze and Liu, Yun and Jiang, Che and Lyu, Kangbo and Wan, Weikang and Shen, Hao and Liang, Boqiang and Fu, Zhoujie and Wang, He and Yi, Li},
     title     = {HOI4D: A 4D Egocentric Dataset for Category-Level Human-Object Interaction},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
     month     = {June},
     year      = {2022},
     pages     = {21013-21022}
-}
-</code></pre>
-        </div>
-      </div>
+}</code></pre>
+    </section>
 
-      <div class="section">
-        <h3>Data</h3>
-        <p>News: We have released the test set with labels for HOI4D action segmentation and semantic segmentation tasks.</p>
-        <p>HOI4D_color.<a href="https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIvAQAAAAAB4AcDOxj_uuh7alRaR9b7MQ?e=GyBNaD" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>RGB_video</a>. </p>
-        <p>HOI4D_depth.<a href="https://1drv.ms/f/c/12e5c3dbeffd0594/EpQF_e_bw-UggBIpAQAAAAABswaE_tZsrSwsEoBbFh7F2w?e=K797bs" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>Depth_video</a>. </p>
-        <p>HOI4D_CAD_models.<a href="https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIsAQAAAAAB5gBbXuK7eDzXQmzDS5W09g?e=DdkFTE" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>CAD_model</a>. </p>
-        <p>HOI4D_annotations.<a href="https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIuAQAAAAABELgpzxDxCz58Qov76-wpvw?e=qhyY0h" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>Annotations</a>. </p>
-        <p>HOI4D_cameras.<a href="https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIqAQAAAAABZBWQ3p5gxd-tu_3rOeSo_A?e=GjWeg8" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>Camera_parameters</a>. </p>
-        <p>HOI4D_Handpose.<a href="https://1drv.ms/u/c/12e5c3dbeffd0594/EZQF_e_bw-UggBIrAQAAAAABHyHqDhs5CpJAkWTAQoGWxQ?e=ALFMCD" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>HOI4D_Handpose_1</a>. </p>
-        <p>HOI4D_Instructions.<a href="https://github.com/leolyliu/HOI4D-Instructions" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>Github</a>. </p>
-        <p>HOI4D_Action_Segmentation.<a href="https://github.com/hoi4d/HOI4D_ActionSeg" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>Github</a>. </p>
-        <p>Dataset for HOI4D_Action_Segmentation(test set with labels).<a href="https://1drv.ms/f/c/12e5c3dbeffd0594/EpQF_e_bw-UggBIcAQAAAAABw2LzsilH0w3nTtEH3emGlA?e=dKDhCl" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>Dataset</a>. </p>
-        <p>HOI4D_Semantic_Segmentation(test set with labels).<a href="https://github.com/hoi4d/HOI4D_semseg" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>Github</a>. </p>
-        <p>Dataset for HOI4D_Semantic_Segmentation.<a href="https://1drv.ms/f/c/12e5c3dbeffd0594/EpQF_e_bw-UggBIjAQAAAAAB562IRa4P_xu7YZgSSU_vrA?e=tnIX8V" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>Dataset</a>. </p>
-        <p>Baidu Cloud download link.<a href="https://pan.baidu.com/s/1ZeX8SzU-gnJ-wpO9ZukulQ?pwd=7gfs" target="_blank"><span class="icon"> <i class="fas fa-download"></i> </span>Baidu Cloud download link.</a>. </p>
-    </div>
+    <footer class="mt-5 pt-4 border-top text-center text-muted" style="font-size: 0.9rem;">
+        <p class="mb-1">Send any comments or questions to Yunze Liu: <a href="mailto:liuyzchina@gmail.com">liuyzchina@gmail.com</a></p>
+        <p class="mb-1">HOI4D is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>.</p>
+        <p class="mb-0 mt-3 small">Last updated on 01/11/2024</p>
+    </footer>
 
-
-      <div class="section">
-        <h3>Contact</h3>
-        <p>Send any comments or questions to Yunze Liu: liuyzchina@gmail.com. HOI4D is licensed under <span class="underline"><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>.</p>
-      </div>
-
-      <hr>
-      <p>Last updated on 01/11/2024</p>
-    </div>
-  </div>
 </div>
+
 </body>
 </html>
